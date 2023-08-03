@@ -6,7 +6,7 @@ export type ProjectType = {
 export function ProjectItem(props: { project: ProjectType }) {
   return (
     <div>
-      <p>{props.project.title}</p>
+      <h3>{props.project.title}</h3>
       <p>{props.project.description}</p>
     </div>
   )
