@@ -1,4 +1,6 @@
+'use client'
 import { ProjectType, ProjectSection } from "@/components/projects"
+import Scene from "@/components/three"
 import { getProjectsData } from "@/lib/localdata"
 
 export default function Home(props: { projectSections: {title: string, projects: ProjectType[]}[] }) {
@@ -43,7 +45,9 @@ export default function Home(props: { projectSections: {title: string, projects:
 
   return (
     <> 
-      <p>hello world</p>
+      {/* TODO: fetch the blurb from somewhere */}
+      <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science.</p>
+      <Scene />
       {
         projectSections.map((projectSection) => (
           <ProjectSection
