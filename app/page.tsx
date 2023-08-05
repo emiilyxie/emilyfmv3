@@ -22,6 +22,30 @@ export default function Home(props: { projectSections: {title: string, projects:
           {
             "title": "UCSF",
             "description": "Researching the shape of the meniscus."
+          },
+          {
+            "title": "NASA Jet Propulsion Laboratory",
+            "description": "Developed planning software for Europa Clipper, a mission launching for Jupiter in 2024."
+          },
+          {
+            "title": "Augmented Perception Lab",
+            "description": "Exploring sound perception in virtual reality."
+          },
+          {
+            "title": "UCSF",
+            "description": "Researching the shape of the meniscus."
+          },
+          {
+            "title": "NASA Jet Propulsion Laboratory",
+            "description": "Developed planning software for Europa Clipper, a mission launching for Jupiter in 2024."
+          },
+          {
+            "title": "Augmented Perception Lab",
+            "description": "Exploring sound perception in virtual reality."
+          },
+          {
+            "title": "UCSF",
+            "description": "Researching the shape of the meniscus."
           }
         ]
       },
@@ -52,7 +76,7 @@ export default function Home(props: { projectSections: {title: string, projects:
       </div>
 
       <div className={styles.projectSections}>
-        <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science.</p>
+        <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science. cs is my ultimate passion. four square and seven years ago.</p>
         {
           projectSections.map((projectSection) => (
             <ProjectSection
