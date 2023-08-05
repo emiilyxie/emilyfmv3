@@ -2,6 +2,7 @@
 import { ProjectType, ProjectSection } from "@/components/projects"
 import Scene from "@/components/three"
 import { getProjectsData } from "@/lib/localdata"
+import styles from "./page.module.css"
 
 export default function Home(props: { projectSections: {title: string, projects: ProjectType[]}[] }) {
 
@@ -44,19 +45,25 @@ export default function Home(props: { projectSections: {title: string, projects:
     ]
 
   return (
-    <> 
+    <div className={styles.container}> 
       {/* TODO: fetch the blurb from somewhere */}
-      <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science.</p>
-      <Scene />
-      {
-        projectSections.map((projectSection) => (
-          <ProjectSection
-            key={projectSection.title}
-            title={projectSection.title}
-            projects={projectSection.projects}
-          />
-        ))
-      }
-    </>
+      <div className={styles.canvas}>
+        <Scene />
+      </div>
+
+      <div className={styles.projectSections}>
+        <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science.</p>
+        {
+          projectSections.map((projectSection) => (
+            <ProjectSection
+              key={projectSection.title}
+              title={projectSection.title}
+              projects={projectSection.projects}
+            />
+          ))
+        }
+      </div>
+
+    </div>
   )
 }

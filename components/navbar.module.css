@@ -1,0 +1,5 @@
+.navbar {
+  position: absolute;
+  background-color: aqua;
+  z-index: 1000;
+}
