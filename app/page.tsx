@@ -3,6 +3,12 @@ import { ProjectType, ProjectSection } from "@/components/projects"
 import Scene from "@/components/three"
 import { getProjectsData } from "@/lib/localdata"
 import styles from "./page.module.css"
+import { Cutive_Mono } from "next/font/google"
+
+const cutiveMono = Cutive_Mono({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function Home(props: { projectSections: {title: string, projects: ProjectType[]}[] }) {
 
@@ -69,7 +75,7 @@ export default function Home(props: { projectSections: {title: string, projects:
     ]
 
   return (
-    <div className={styles.container}> 
+    <div className={`${styles.container} ${cutiveMono.className}`}> 
       {/* TODO: fetch the blurb from somewhere */}
       <div className={styles.canvas}>
         <Scene />
