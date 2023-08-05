@@ -1,5 +1,10 @@
-.navbar {
+.navContainer {
   position: absolute;
-  background-color: aqua;
   z-index: 1000;
+  margin-left: 3em;
+  margin-top: 3em;
+}
+
+.navItem {
+  margin-bottom: 1em;
 }
