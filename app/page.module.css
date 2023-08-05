@@ -5,11 +5,12 @@
 }
 
 .canvas {
-  flex: 1.62;
+  flex: 1.62 1 0;
   height: 100%;
 }
 
 .projectSections {
+  flex: 0.68 1 0;
   height: 100%;
   overflow-y: scroll;
 }

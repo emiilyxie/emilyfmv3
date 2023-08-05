@@ -1,11 +1,11 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from '@react-three/drei'
+import { useRef } from "react";
 
 export default function Scene() {
   return (
     <Canvas>
-      <Box position={[1.2, 0, 0]} />
-      <pointLight position={[0, 1, 2]} intensity={20}></pointLight>
+      <Sphere position={[0, 0, 0]} />
       <OrbitControls />
     </Canvas>
     );
@@ -16,6 +16,23 @@ function Box(props : any){
     <mesh {...props}>
       <boxGeometry args={[1, 1, 1]}/>
       <meshLambertMaterial attach="material" color="hotpink"/>
+    </mesh>
+  )
+}
+
+function Sphere(props : any) {
+  const mesh = useRef<THREE.Mesh>(null)
+
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+    }
+  })
+
+  return(
+    <mesh {...props} ref={mesh}>
+      <sphereGeometry args={[1, 16, 16]}/>
+      <meshStandardMaterial wireframe />
     </mesh>
   )
 }
