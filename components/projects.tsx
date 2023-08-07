@@ -8,7 +8,11 @@ export type ProjectType = {
 export function ProjectItem(props: { project: ProjectType }) {
   return (
     <div>
-      <h3 className={styles.projectHeading}>{props.project.title}</h3>
+      <div className={styles.projectHeading}>
+        {/* TODO: get out of className hell */}
+        <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
+        <span className={styles.projectHeadingButton}>+</span>
+      </div>
       <p className={styles.projectDescription}>{props.project.description}</p>
     </div>
   )
