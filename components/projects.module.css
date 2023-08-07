@@ -1,5 +1,5 @@
 .projectHeading {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,10 +10,10 @@
 }
 
 .projectDescription {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 .projectSectionHeader {
   font-size: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
