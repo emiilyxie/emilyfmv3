@@ -42,8 +42,8 @@ function Sphere(props : any) {
 }
 
 function Model(props : any) {
-  // const obj = useLoader(OBJLoader, './witch-broom.obj')
-  const gltf = useLoader(GLTFLoader, './witch-walking.gltf')
+  // const obj = useLoader(OBJLoader, './models/witch-broom.obj')
+  const gltf = useLoader(GLTFLoader, './models/witch-walking.gltf')
   const mesh = useRef<THREE.Mesh>(null)
 
   useFrame(() => {
