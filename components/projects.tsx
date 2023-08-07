@@ -16,11 +16,11 @@ export function ProjectItem(props: { project: ProjectType }) {
 
   return (
     <div>
-      <div className={styles.projectHeading}>
-        {/* TODO: get out of className hell */}
-        <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
-        <button onClick={toggleExpanded} className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</button>
-      </div>
+      <button onClick={toggleExpanded} className={styles.projectHeading}>
+          {/* TODO: get out of className hell */}
+          <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
+          <p className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</p>
+      </button>
       {isExpanded &&
       <p className={styles.projectDescription}>{props.project.description}</p>
       }
