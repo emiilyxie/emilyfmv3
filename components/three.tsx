@@ -8,8 +8,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 export default function Scene() {
   return (
     <Canvas>
-      <Model scale={30} position={[0,-0.5,0]}/>
-      {/* <Sphere position={[0, 0, 0]} /> */}
+      <GLTFModel path="./models/gearWireframe.glb" position={[0,0,0]}/>
+      <pointLight position={[10, 10, 10]} intensity={1000}/>
       <OrbitControls />
     </Canvas>
     );
@@ -41,9 +41,8 @@ function Sphere(props : any) {
   )
 }
 
-function Model(props : any) {
-  // const obj = useLoader(OBJLoader, './models/witch-broom.obj')
-  const gltf = useLoader(GLTFLoader, './models/witch-walking.gltf')
+function GLTFModel(props : any) {
+  const gltf = useLoader(GLTFLoader, props.path)
   const mesh = useRef<THREE.Mesh>(null)
 
   useFrame(() => {
@@ -52,6 +51,18 @@ function Model(props : any) {
     }
   })
 
-  // return <primitive {...props} ref={mesh} object={obj} />
   return <primitive {...props} ref={mesh} object={gltf.scene} />
+}
+
+function OBJModel(props : any) {
+  const obj = useLoader(OBJLoader, './models/witch-broom.obj')
+  const mesh = useRef<THREE.Mesh>(null)
+
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.y += 0.01
+    }
+  })
+
+  return <primitive {...props} ref={mesh} object={obj} />
 }
