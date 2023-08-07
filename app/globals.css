@@ -3,9 +3,13 @@
   --secondary: #ffffff;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
+  font-weight: 400;
 }
 
 html, body {
