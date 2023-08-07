@@ -76,7 +76,7 @@ export default function Home(props: { projectSections: {title: string, projects:
       </div>
 
       <div className={styles.projectSections}>
-        <p>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science. cs is my ultimate passion. four square and seven years ago.</p>
+        <p className={styles.blurb}>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science. cs is my ultimate passion. four square and seven years ago.</p>
         {
           projectSections.map((projectSection) => (
             <ProjectSection
