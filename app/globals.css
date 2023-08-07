@@ -28,5 +28,13 @@ li {
 a {
   text-decoration: none;
   color: var(--primary);
+}
 
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
