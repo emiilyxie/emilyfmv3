@@ -8,7 +8,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 export default function Scene() {
   return (
     <Canvas>
-      <GLTFModel path="./models/gearWireframe.glb" position={[0,0,0]}/>
+      {/* <GLTFModel path="./models/gearWireframe.glb" position={[0,0,0]}/> */}
+      <Sphere position={[0,0,0]} scale={0.5}/>
       <pointLight position={[10, 10, 10]} intensity={1000}/>
       <OrbitControls />
     </Canvas>
@@ -29,14 +30,14 @@ function Sphere(props : any) {
 
   useFrame(() => {
     if (mesh.current) {
-      mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+      mesh.current.rotation.y += 0.01
     }
   })
 
   return(
     <mesh {...props} ref={mesh}>
       <sphereGeometry args={[1, 16, 16]}/>
-      <meshStandardMaterial wireframe />
+      <meshStandardMaterial wireframe/>
     </mesh>
   )
 }
