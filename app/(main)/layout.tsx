@@ -9,7 +9,7 @@ export default function ContentLayout({
   return (
     <div className={styles.container}>
       <div className={styles.canvas}>
-        <Scene />
+        <Scene path="./models/cat.glb"/>
       </div>
       
       <div className={styles.content}>

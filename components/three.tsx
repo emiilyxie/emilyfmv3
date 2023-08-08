@@ -5,14 +5,13 @@ import { useRef } from "react";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
-
-export default function Scene() {
+export default function Scene(props : any) {
   return (
     <Canvas>
-      {/* <GLTFModel path="./models/gearWireframe.glb" position={[0,0,0]}/> */}
-      <Sphere position={[0,0,0]} scale={0.5}/>
-      <pointLight position={[10, 10, 10]} intensity={1000}/>
-      <OrbitControls />
+      <GLTFModel path={props.path} position={[0,0,0]} scale={2}/>
+      {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
+      {/* <pointLight position={[10, 10, 10]} intensity={1000}/> */}
+      {/* <OrbitControls /> */}
     </Canvas>
     );
   }
