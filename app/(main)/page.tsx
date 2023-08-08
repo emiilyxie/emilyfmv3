@@ -1,6 +1,5 @@
 'use client'
 import { ProjectType, ProjectSection } from "@/components/projects"
-import Scene from "@/components/three"
 import { getProjectsData } from "@/lib/localdata"
 import styles from "./page.module.css"
 
@@ -69,13 +68,7 @@ export default function Home(props: { projectSections: {title: string, projects:
     ]
 
   return (
-    <div className={styles.container}> 
-      {/* TODO: fetch the blurb from somewhere */}
-      <div className={styles.canvas}>
-        <Scene />
-      </div>
-
-      <div className={styles.projectSections}>
+    <>
         <p className={styles.blurb}>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science. cs is my ultimate passion. four square and seven years ago.</p>
         {
           projectSections.map((projectSection) => (
@@ -86,8 +79,6 @@ export default function Home(props: { projectSections: {title: string, projects:
             />
           ))
         }
-      </div>
-
-    </div>
+    </>
   )
 }

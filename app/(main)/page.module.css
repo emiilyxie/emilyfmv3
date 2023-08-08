@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.projectSections {
+.content {
   flex: 0.32 1 0;
   height: 100%;
   overflow-y: scroll;
