@@ -1,8 +1,9 @@
 'use client'
+import React from "react";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-export default function Test() {
+function AnimateOnLoad() {
   const root = useRef(null);
   const text = useRef(null);
 
@@ -17,6 +18,18 @@ export default function Test() {
   return (
     <div ref={root}>
       <button className="text" ref={text}>test</button>
+    </div>
+  )
+}
+
+export default function AnimateOnClick() {
+  const rotateText = ({ currentTarget } : React.MouseEvent<HTMLElement> ) => {
+    gsap.to(currentTarget, { rotate: "+=360" });
+  };
+
+  return (
+    <div>
+      <button className="text" onClick={rotateText}>test</button>
     </div>
   )
 }
