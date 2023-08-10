@@ -23,11 +23,13 @@ export default function Home(props: { projectSections: {title: string, projects:
         "projects": [
           {
             "title": "NASA Jet Propulsion Laboratory",
-            "description": "Developed planning software for Europa Clipper, a mission launching for Jupiter in 2024."
+            "description": "Developed planning software for Europa Clipper, a mission launching for Jupiter in 2024.",
+            "link": "https://www.jpl.nasa.gov/missions/europa-clipper/"
           },
           {
             "title": "Augmented Perception Lab",
-            "description": "Exploring sound perception in virtual reality."
+            "description": "Exploring sound perception in virtual reality.",
+            "link": "/about"
           },
           {
             "title": "UCSF",

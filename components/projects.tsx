@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import styles from './projects.module.css'
+import Link from 'next/link'
 
 export type ProjectType = {
   title: string;
   description: string;
+  link?: string;
 };
 
 export function ProjectItem(props: { project: ProjectType }) {
@@ -21,8 +23,16 @@ export function ProjectItem(props: { project: ProjectType }) {
           <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
           <p className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</p>
       </button>
-      {isExpanded &&
-      <p className={styles.projectDescription}>{props.project.description}</p>
+      {
+        isExpanded &&
+        <div className={styles.projectDescription}>
+          <p className={styles.projectDescriptionText}>{props.project.description}</p>
+          {
+            props.project.link &&
+            <Link href={props.project.link} className={styles.projectDescriptionLink}>Learn More</Link>
+          }
+          
+        </div>
       }
     </div>
   )
