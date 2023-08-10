@@ -3,6 +3,17 @@ import { ProjectType, ProjectSection } from "@/components/projects"
 import { getProjectsData } from "@/lib/localdata"
 import styles from "./page.module.css"
 
+/*
+TODOs:
+- add link to projects
+- fill in content
+- make resume page link to pdf
+- add dropdown animations
+- add hover effects
+- fix flexbox stuff
+- add scroll interaction?
+*/
+
 export default function Home(props: { projectSections: {title: string, projects: ProjectType[]}[] }) {
 
   // TODO: put the data in a local json file
