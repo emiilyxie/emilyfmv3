@@ -20,7 +20,7 @@ export function ProjectItem(props: { project: ProjectType }) {
     const ctx = gsap.context(() => {
       tl.current = gsap
         .timeline()
-        .from(descRef.current, {height: 0, opacity: 0, margin: "0", duration: 0.5})
+        .from(descRef.current, {height: 0, opacity: 0, margin: 0, duration: 0.5})
     }, root);
     return () => ctx.revert();
   }, [])
@@ -30,7 +30,7 @@ export function ProjectItem(props: { project: ProjectType }) {
   }, [isExpanded])
 
   return (
-    <div ref={root}>
+    <div className={styles.projectWrapper} ref={root}>
       <button onClick={() => setIsExpanded(!isExpanded)} className={styles.projectHeading}>
           {/* TODO: get out of className hell */}
           <h3 className={styles.projectHeadingText}>{props.project.title}</h3>

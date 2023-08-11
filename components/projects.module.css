@@ -1,5 +1,13 @@
-.projectHeading {
+.projectSectionHeader {
+  font-size: 1em;
   margin-bottom: 2em;
+}
+
+.projectWrapper {
+  margin-bottom: 2em;
+}
+
+.projectHeading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,16 +19,17 @@
 }
 
 .projectDescription {
-  margin-bottom: 3em;
-  color: var(--secondary);
+  margin-top: 1em;
+  font-size: 0.9em;
   overflow: hidden;
+  color: var(--secondary);
 }
 
 .projectDescriptionText {
-  margin-bottom: 1em;
+
+  margin-bottom: 0.9em;
 }
 
-.projectSectionHeader {
-  font-size: 1em;
-  margin-bottom: 2em;
+.projectDescriptionLink {
+  font-size: 0.9em;
 }
