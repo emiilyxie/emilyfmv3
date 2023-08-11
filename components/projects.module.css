@@ -13,6 +13,7 @@
 .projectDescription {
   margin-bottom: 3em;
   color: var(--secondary);
+  overflow: hidden;
 }
 
 .projectDescriptionText {

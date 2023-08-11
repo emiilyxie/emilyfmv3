@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useRef, useState, useLayoutEffect, useEffect } from 'react'
 import styles from './projects.module.css'
 import Link from 'next/link'
+import { gsap } from 'gsap';
+import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
 export type ProjectType = {
   title: string;
@@ -9,31 +11,38 @@ export type ProjectType = {
 };
 
 export function ProjectItem(props: { project: ProjectType }) {
-
   const [isExpanded, setIsExpanded] = useState(false)
+  const root = useRef(null)
+  const descRef = useRef(null)
+  const tl = useRef<GSAPTimeline>()
 
-  let toggleExpanded = () => {
-    setIsExpanded(!isExpanded)
-  }
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline()
+        .from(descRef.current, {height: 0, opacity: 0, margin: "0", duration: 0.5})
+    }, root);
+    return () => ctx.revert();
+  }, [])
+
+  useEffect(() => {
+    tl.current?.reversed(!isExpanded);
+  }, [isExpanded])
 
   return (
-    <div>
-      <button onClick={toggleExpanded} className={styles.projectHeading}>
+    <div ref={root}>
+      <button onClick={() => setIsExpanded(!isExpanded)} className={styles.projectHeading}>
           {/* TODO: get out of className hell */}
           <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
           <p className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</p>
       </button>
-      {
-        isExpanded &&
-        <div className={styles.projectDescription}>
-          <p className={styles.projectDescriptionText}>{props.project.description}</p>
-          {
-            props.project.link &&
-            <Link href={props.project.link} className={styles.projectDescriptionLink}>Learn More</Link>
-          }
-          
-        </div>
-      }
+      <div className={styles.projectDescription} ref={descRef}>
+        <p className={styles.projectDescriptionText}>{props.project.description}</p>
+        {
+          props.project.link &&
+          <Link href={props.project.link} className={styles.projectDescriptionLink}>Learn More</Link>
+        }
+      </div>
     </div>
   )
 }
