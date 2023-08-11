@@ -1,16 +1,17 @@
 'use client'
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from '@react-three/drei'
-import { useRef } from "react";
+import { useRef, useLayoutEffect, use } from "react";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { Mesh, MeshBasicMaterial } from "three";
 
 export default function Scene(props : any) {
   return (
     <Canvas>
       <GLTFModel path={props.path} position={[0,0,0]} scale={2}/>
       {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
-      {/* <pointLight position={[10, 10, 10]} intensity={1000}/> */}
+      <pointLight position={[10, 10, 10]} intensity={1000}/>
       {/* <OrbitControls /> */}
     </Canvas>
     );
@@ -51,6 +52,14 @@ function GLTFModel(props : any) {
       mesh.current.rotation.y += 0.01
     }
   })
+
+  useLayoutEffect(() => {
+    gltf.scene.traverse((child : any) => {
+      if (child instanceof Mesh) {
+        child.material = new MeshBasicMaterial({color: "hotpink"})
+      }
+    })
+  }, [])
 
   return <primitive {...props} ref={mesh} object={gltf.scene} />
 }
