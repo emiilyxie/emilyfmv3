@@ -39,3 +39,9 @@ button {
   border: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 48em) {
+  body {
+    font-size: 0.75em;
+  }
+}
