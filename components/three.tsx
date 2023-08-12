@@ -9,7 +9,7 @@ import { Mesh, MeshBasicMaterial } from "three";
 export default function Scene(props : any) {
   return (
     <Canvas>
-      <GLTFModel path={props.path} position={[0,0,0]} scale={2}/>
+      <GLTFModel path={props.path} color={"blue"} position={[0,0,0]} scale={2}/>
       {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
       <pointLight position={[10, 10, 10]} intensity={1000}/>
       {/* <OrbitControls /> */}
@@ -56,7 +56,7 @@ function GLTFModel(props : any) {
   useLayoutEffect(() => {
     gltf.scene.traverse((child : any) => {
       if (child instanceof Mesh) {
-        child.material = new MeshBasicMaterial({color: "hotpink"})
+        child.material = new MeshBasicMaterial({color: props.color || 0x000000})
       }
     })
   }, [])

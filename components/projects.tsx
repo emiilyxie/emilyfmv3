@@ -2,7 +2,6 @@ import { useRef, useState, useLayoutEffect, useEffect } from 'react'
 import styles from './projects.module.css'
 import Link from 'next/link'
 import { gsap } from 'gsap';
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
 export type ProjectType = {
   title: string;
