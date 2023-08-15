@@ -35,7 +35,7 @@
         {
           "title": "Jazzcats!",
           "description": "An iOS game about learning jazz transcription. Yay!!!!!!!!",
-          "link": "https://apps.apple.com/us/app/jazzcats/id1529195885"
+          "link": "http://jazzcats.emily.xie.fm"
         },
         {
           "title": "TEDxCMU - Diffraction",
@@ -46,6 +46,11 @@
           "title": "TEDxCMU - I Know A Place",
           "description": "Interactive application about sharing stories at locations around CMU. Created for the TEDxCMU 2023 salon event.",
           "link": "https://iknowaplace.tedxcmu.org/"
+        },
+        {
+          "title": "Music Day",
+          "description": "Generate background music based on the weather and time of day. Click on the square button to get started and efresh for endless tunes.",
+          "link": "http://musicday.emily.xie.fm"
         }
       ]
     }
