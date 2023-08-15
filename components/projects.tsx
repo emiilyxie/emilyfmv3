@@ -36,7 +36,7 @@ export function ProjectItem(props: { project: ProjectType }) {
           <p className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</p>
       </button>
       <div className={styles.projectDescription} ref={descRef}>
-        <p className={styles.projectDescriptionText}>{props.project.description}</p>
+        <div className={styles.projectDescriptionText} dangerouslySetInnerHTML={{ __html: props.project.description}}></div>
         {
           props.project.link &&
           <Link href={props.project.link} className={styles.projectDescriptionLink}>Learn More</Link>
