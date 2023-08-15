@@ -10,7 +10,7 @@ export default function ContentLayout({
     <div className={styles.container}>
       <div className={styles.canvas}>
         <Scene>
-          <GLTFModel path={"./models/cat.glb"} color={"black"} position={[0,0,0]} scale={2}/>
+          <GLTFModel path={"/models/cat.glb"} color={"black"} position={[0,0,0]} scale={2}/>
         </Scene>
       </div>
       
