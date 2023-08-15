@@ -5,32 +5,57 @@
       "projects": [
         {
           "title": "NASA Jet Propulsion Laboratory",
-          "description": "Developed planning software for Europa Clipper, a mission launching for Jupiter in 2024."
+          "description": "Developing planning software for Europa Clipper, a mission launching for Jupiter's moon Europa in 2024.",
+          "link": "https://www.jpl.nasa.gov/missions/europa-clipper/"
         },
         {
           "title": "Augmented Perception Lab",
-          "description": "Exploring sound perception in virtual reality."
+          "description": "Exploring sound perception in AR/VR environments, and optimizing visual UI layout based on this perception.",
+          "link": "https://augmented-perception.org/"
         },
         {
-          "title": "UCSF",
-          "description": "Researching the shape of the meniscus."
+          "title": "UCSF - Statistical Shape Modeling of Knee Menisci",
+          "description": "Researching the 3D shape of the meniscus and its correlation with incident osteoarthritis. Paper published in <i>Arthritis & Rheumatology</i>.",
+          "link": "https://pubmed.ncbi.nlm.nih.gov/37262347/"
+        },
+        {
+          "title": "UCSF - Deep Learning and Brain Imaging",
+          "description": "Using convolutional neural networks to automate the quality control of magnetic resonance spectroscopic imaging (MRSI) voxels. Paper published in <i>Frontiers In Neuroscience</i>.",
+          "link": "https://www.frontiersin.org/articles/10.3389/fnins.2023.1219343/abstract"
+        },
+        {
+          "title": "Sandia National Laboratories",
+          "description": "Modeling gas simulations to optimize the placement of detectors in public facilities."
         }
       ]
     },
     {
-      "title": "Projects",
+      "title": "Fun",
       "projects": [
         {
-          "title": "JazzCats",
-          "description": "i love u"
+          "title": "Jazzcats!",
+          "description": "An iOS game about learning jazz transcription. Yay!!!!!!!!",
+          "link": "https://apps.apple.com/us/app/jazzcats/id1529195885"
         },
         {
-          "title": "JazzCats",
-          "description": "i love u"
+          "title": "TEDxCMU - Diffraction",
+          "description": "Main event website for TEDxCMU 2023. Played around with Three.js to develop the home screen gradient + orb interaction.",
+          "link": "https://diffraction.tedxcmu.org/"
         },
         {
-          "title": "JazzCats",
-          "description": "i love u"
+          "title": "TEDxCMU - I Know A Place",
+          "description": "Interactive application about sharing stories at locations around CMU. Created for the TEDxCMU 2023 salon event.",
+          "link": "https://iknowaplace.tedxcmu.org/"
+        },
+        {
+          "title": "Art",
+          "description": "I like drawing and playing music from time to time.",
+          "link": "/coming-soon"
+        },
+        {
+          "title": "Crochet",
+          "description": "A gallery of some crochet projects.",
+          "link": "/coming-soon"
         }
       ]
     }
