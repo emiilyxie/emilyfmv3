@@ -1,12 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/navbar'
-import { Cutive_Mono, Roboto_Mono } from "next/font/google"
-
-const cutiveMono = Cutive_Mono({
-  weight: '400',
-  subsets: ['latin'],
-})
+import { Roboto_Mono } from "next/font/google"
 
 const roboto = Roboto_Mono({
   weight: '400',
@@ -15,7 +10,7 @@ const roboto = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: 'Emily Xie',
-  description: 'Just some stuff',
+  description: 'hi.json',
 }
 
 export default function RootLayout({

@@ -13,9 +13,9 @@ export default function Navbar() {
       <li className={styles.navItem}>
         <Link href="./resume-f23.pdf">Resume</Link>
       </li>
-      <li className={styles.navItem}>
+      {/* <li className={styles.navItem}>
         <Link href="/test">Test</Link>
-      </li>
+      </li> */}
     </ul>
   )
 }

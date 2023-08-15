@@ -5,15 +5,16 @@ import projectData from "../../json/projects.json"
 
 /*
 TODOs:
-- add dropdown animations
-- fill in content
+- make draopdown animation yummier
+- 404 page
+- add photo gallery layout for art and crochet
 */
 
-export default function Home(props: { projectSections: {title: string, projects: ProjectType[]}[] }) {
+export default function Home() {
 
   return (
     <>
-        <p className={styles.blurb}>hi i'm emily, an undergraduate at cmu majoring in information systems and computer science. cs is my ultimate passion. four square and seven years ago.</p>
+        <p className={styles.blurb}>hi everyone i'm emily xie and welcome to my awesome website.</p>
         {
           projectData.projectSections.map((projectSection) => (
             <ProjectSection

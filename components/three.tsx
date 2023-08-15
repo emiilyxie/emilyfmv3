@@ -9,7 +9,7 @@ import { Mesh, MeshBasicMaterial } from "three";
 export default function Scene(props : any) {
   return (
     <Canvas>
-      <GLTFModel path={props.path} color={"blue"} position={[0,0,0]} scale={2}/>
+      <GLTFModel path={props.path} color={"black"} position={[0,0,0]} scale={2}/>
       {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
       <pointLight position={[10, 10, 10]} intensity={1000}/>
       {/* <OrbitControls /> */}

@@ -46,6 +46,16 @@
           "title": "TEDxCMU - I Know A Place",
           "description": "Interactive application about sharing stories at locations around CMU. Created for the TEDxCMU 2023 salon event.",
           "link": "https://iknowaplace.tedxcmu.org/"
+        },
+        {
+          "title": "Art",
+          "description": "I like drawing and playing music from time to time.",
+          "link": "/projects/art"
+        },
+        {
+          "title": "Crochet",
+          "description": "A gallery of some crochet projects.",
+          "link": "/projects/crochet"
         }
       ]
     }
