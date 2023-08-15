@@ -41,7 +41,11 @@ export function ProjectItem(props: { project: ProjectType }) {
         <div className={styles.projectDescriptionText} dangerouslySetInnerHTML={{ __html: props.project.description}}></div>
         {
           props.project.link &&
-          <Link href={props.project.link} className={styles.projectDescriptionLink}>Learn More</Link>
+          <Link href={props.project.link} 
+            className={styles.projectDescriptionLink}
+            target={props.project.link.charAt(0) == "/" ? "_self" : "_blank"}>
+              Learn More
+          </Link>
         }
       </div>
     </div>
