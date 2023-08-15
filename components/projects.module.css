@@ -20,13 +20,14 @@
 }
 
 .projectDescription {
-  margin-top: 1em;
   font-size: 0.9em;
   overflow: hidden;
+  height: 0;
+  opacity: 0;
+  margin: 0;
 }
 
 .projectDescriptionText {
-
   margin-bottom: 0.9em;
 }
 

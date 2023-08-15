@@ -18,8 +18,10 @@ export function ProjectItem(props: { project: ProjectType }) {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       tl.current = gsap
-        .timeline()
-        .from(descRef.current, {height: 0, opacity: 0, margin: 0, duration: 0.5})
+        .timeline({paused: true})
+        .to(descRef.current, {height: "auto", opacity: 1, marginTop: "1em", duration: 0.5})
+      
+      tl.current?.paused(false)
     }, root);
     return () => ctx.revert();
   }, [])
