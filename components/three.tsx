@@ -1,18 +1,22 @@
 'use client'
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from '@react-three/drei'
-import { useRef, useLayoutEffect, use } from "react";
+import { useRef, useLayoutEffect, Suspense } from "react";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
 import { Mesh, MeshBasicMaterial } from "three";
 
-export default function Scene(props : any) {
+export function Scene(props : any) {
   return (
     <Canvas>
-      <GLTFModel path={props.path} color={"black"} position={[0,0,0]} scale={2}/>
-      {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
-      <pointLight position={[10, 10, 10]} intensity={1000}/>
-      {/* <OrbitControls /> */}
+      <Suspense fallback={null}>
+        {props.children}
+        {/* <GLTFModel path={props.path} color={"black"} position={[0,0,0]} scale={2}/> */}
+        {/* <Photo path={props.path} position={[0,0,0]}/> */}
+        {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
+      </Suspense>
+      <OrbitControls />
     </Canvas>
     );
   }
@@ -43,7 +47,7 @@ function Sphere(props : any) {
   )
 }
 
-function GLTFModel(props : any) {
+export function GLTFModel(props : any) {
   const gltf = useLoader(GLTFLoader, props.path)
   const mesh = useRef<THREE.Mesh>(null)
 
@@ -64,8 +68,8 @@ function GLTFModel(props : any) {
   return <primitive {...props} ref={mesh} object={gltf.scene} />
 }
 
-function OBJModel(props : any) {
-  const obj = useLoader(OBJLoader, './models/witch-broom.obj')
+export function OBJModel(props : any) {
+  const obj = useLoader(OBJLoader, props.path)
   const mesh = useRef<THREE.Mesh>(null)
 
   useFrame(() => {
@@ -75,4 +79,23 @@ function OBJModel(props : any) {
   })
 
   return <primitive {...props} ref={mesh} object={obj} />
+}
+
+export function Photo(props : any) {
+  const colorMap = useLoader(TextureLoader, props.path)
+  const mesh = useRef<THREE.Mesh>(null)
+
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.y += 0.01
+    }
+  })
+
+  return (
+    <mesh {...props} rotation={[1,0,0]} ref={mesh}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshBasicMaterial map={colorMap} />
+    </mesh>
+  )
+
 }

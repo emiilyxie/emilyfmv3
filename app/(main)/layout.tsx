@@ -1,5 +1,5 @@
 import styles from "./page.module.css"
-import Scene from "@/components/three"
+import { Scene, GLTFModel } from "@/components/three"
 
 export default function ContentLayout({
   children,
@@ -9,7 +9,9 @@ export default function ContentLayout({
   return (
     <div className={styles.container}>
       <div className={styles.canvas}>
-        <Scene path="./models/cat.glb"/>
+        <Scene>
+          <GLTFModel path={"./models/cat.glb"} color={"black"} position={[0,0,0]} scale={2}/>
+        </Scene>
       </div>
       
       <div className={styles.content}>
