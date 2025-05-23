@@ -4,6 +4,10 @@
       "title": "Work",
       "projects": [
         {
+          "title": "Apple",
+          "description": "Implementing and refining sound experiences in the Audio and Media Technologies team."
+        },
+        {
           "title": "NASA Jet Propulsion Laboratory",
           "description": "Developing planning software for Europa Clipper, a mission launching for Jupiter's moon Europa in 2024.",
           "link": "https://www.jpl.nasa.gov/missions/europa-clipper/"
@@ -38,14 +42,19 @@
           "link": "http://jazzcats.emily.xie.fm"
         },
         {
+          "title": "ctrl-F",
+          "description": "ctrl-F, in real life. Hackathon project for CMU TartanHacks 2025, 1st place for Computer Vision category.",
+          "link": "https://github.com/emiilyxie/ctrlF"
+        },
+        {
+          "title": "TEDxCMU - Ignite",
+          "description": "Main event website for TEDxCMU 2024. Led team to create animated 3D home screen and interactive minigame countdown for the main event day.",
+          "link": "https://ignite.tedxcmu.org/"
+        },
+        {
           "title": "TEDxCMU - Diffraction",
           "description": "Main event website for TEDxCMU 2023. Played around with Three.js to develop the home screen gradient + orb interaction.",
           "link": "https://diffraction.tedxcmu.org/"
-        },
-        {
-          "title": "TEDxCMU - I Know A Place",
-          "description": "Interactive application about sharing stories at locations around CMU. Created for the TEDxCMU 2023 salon event.",
-          "link": "https://iknowaplace.tedxcmu.org/"
         },
         {
           "title": "Music Day",

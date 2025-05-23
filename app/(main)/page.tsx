@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-        <p className={styles.blurb}>hi everyone i'm emily xie and welcome to my awesome website.</p>
+        <p className={styles.blurb}>i'm emily xie, and welcome to my website.</p>
         {
           projectData.projectSections.map((projectSection) => (
             <ProjectSection

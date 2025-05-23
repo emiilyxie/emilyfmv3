@@ -1,0 +1,10 @@
+{
+  "title": "Archive",
+  "projects": [
+    {
+      "title": "TEDxCMU - I Know A Place",
+      "description": "Interactive application about sharing stories at locations around CMU. Created for the TEDxCMU 2023 salon event.",
+      "link": "https://iknowaplace.tedxcmu.org/"
+    }
+  ]
+}
