@@ -2,17 +2,17 @@
 
 My portfolio website!
 
-Actual link: http://emily.xie.fm
+Actual link: http://emily.xie.fm<br />
 Demo: https://emilyfmv3.vercel.app/
 
-## 🚀 Technologies
+## Technologies
 
 - **Framework**: Next.js 13+ (App Router)
 - **3D**: React Three Fiber & Drei
 - **Animations**: GSAP
 - **Language**: TypeScript
 
-## 🛠️ Development
+## Development
 
 1. Clone the repository:
 ```
@@ -32,7 +32,7 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 📦 Project Structure
+## Project Structure
 
 - `/app` - Next.js app router pages and layouts
 - `/components` - Reusable React components
