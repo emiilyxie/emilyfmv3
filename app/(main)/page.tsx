@@ -2,6 +2,7 @@
 import { ProjectType, ProjectSection } from "@/components/projects"
 import styles from "./page.module.css"
 import projectData from "../../json/projects.json"
+import { useHover } from "./layout"
 
 /*
 TODOs:
@@ -11,7 +12,8 @@ TODOs:
 */
 
 export default function Home() {
-
+  const handleProjectHover = useHover();
+  
   return (
     <>
         <p className={styles.blurb}>i'm emily xie, and welcome to my website.</p>
@@ -21,6 +23,9 @@ export default function Home() {
               key={projectSection.title}
               title={projectSection.title}
               projects={projectSection.projects}
+              onProjectHover={(color) => {
+                handleProjectHover?.(color);
+              }}
             />
           ))
         }

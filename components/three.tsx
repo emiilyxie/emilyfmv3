@@ -5,7 +5,8 @@ import { useRef, useLayoutEffect, Suspense } from "react";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
-import { Mesh, MeshBasicMaterial } from "three";
+import { Mesh, MeshBasicMaterial, type Mesh as ThreeMesh } from "three";
+import type { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function Scene(props : any) {
   return (
@@ -47,9 +48,9 @@ function Sphere(props : any) {
   )
 }
 
-export function GLTFModel(props : any) {
-  const gltf = useLoader(GLTFLoader, props.path)
-  const mesh = useRef<THREE.Mesh>(null)
+export function GLTFModel(props : { path: string, color?: string, position?: [number, number, number], scale?: number }) {
+  const gltf = useLoader(GLTFLoader, props.path) as GLTF
+  const mesh = useRef<ThreeMesh>(null)
 
   useFrame(() => {
     if (mesh.current) {
@@ -58,12 +59,13 @@ export function GLTFModel(props : any) {
   })
 
   useLayoutEffect(() => {
-    gltf.scene.traverse((child : any) => {
+    const colorToUse = props.color || 'black';
+    gltf.scene.traverse((child) => {
       if (child instanceof Mesh) {
-        child.material = new MeshBasicMaterial({color: props.color || 0x000000})
+        child.material = new MeshBasicMaterial({color: colorToUse})
       }
     })
-  }, [])
+  }, [props.color, gltf])
 
   return <primitive {...props} ref={mesh} object={gltf.scene} />
 }
@@ -97,5 +99,4 @@ export function Photo(props : any) {
       <meshBasicMaterial map={colorMap} />
     </mesh>
   )
-
 }

@@ -5,12 +5,14 @@
       "projects": [
         {
           "title": "Apple",
-          "description": "Implementing and refining sound experiences in the Audio and Media Technologies team."
+          "description": "Implementing and refining sound experiences in the Audio and Media Technologies team.",
+          "color": "red"
         },
         {
           "title": "NASA Jet Propulsion Laboratory",
           "description": "Developing planning software for Europa Clipper, a mission launching for Jupiter's moon Europa in 2024.",
-          "link": "https://www.jpl.nasa.gov/missions/europa-clipper/"
+          "link": "https://www.jpl.nasa.gov/missions/europa-clipper/",
+          "color": "blue"
         },
         {
           "title": "Augmented Perception Lab",

@@ -7,13 +7,17 @@ export type ProjectType = {
   title: string;
   description: string;
   link?: string;
+  color?: string;
 };
 
-export function ProjectItem(props: { project: ProjectType }) {
+export function ProjectItem(props: { 
+  project: ProjectType;
+  onHover?: (color: string | undefined) => void;
+}) {
   const [isExpanded, setIsExpanded] = useState(false)
   const root = useRef(null)
   const descRef = useRef(null)
-  const tl = useRef<GSAPTimeline>()
+  const tl = useRef<GSAPTimeline>(null)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -31,9 +35,17 @@ export function ProjectItem(props: { project: ProjectType }) {
   }, [isExpanded])
 
   return (
-    <div className={styles.projectWrapper} ref={root}>
+    <div 
+      className={styles.projectWrapper} 
+      ref={root}
+      onMouseEnter={() => {
+        props.onHover?.(props.project.color || "black");
+      }}
+      onMouseLeave={() => {
+        props.onHover?.("black");
+      }}
+    >
       <button onClick={() => setIsExpanded(!isExpanded)} className={styles.projectHeading}>
-          {/* TODO: get out of className hell */}
           <h3 className={styles.projectHeadingText}>{props.project.title}</h3>
           <p className={styles.projectHeadingButton}>{isExpanded ? "-" : "+"}</p>
       </button>
@@ -52,7 +64,11 @@ export function ProjectItem(props: { project: ProjectType }) {
   )
 }
 
-export function ProjectSection(props: { title: string, projects: ProjectType[] }) {
+export function ProjectSection(props: { 
+  title: string, 
+  projects: ProjectType[];
+  onProjectHover?: (color: string | undefined) => void;
+}) {
   return (
     <div>
       <div>
@@ -62,7 +78,10 @@ export function ProjectSection(props: { title: string, projects: ProjectType[] }
       {props.projects.map((project) => (
         <ProjectItem
           key={project.title}
-          project={project}        
+          project={project}
+          onHover={(color) => {
+            props.onProjectHover?.(color);
+          }}
         />
       ))}
     </div>
