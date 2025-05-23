@@ -11,21 +11,23 @@ Demo: https://emilyfmv3.vercel.app/
 - **3D**: React Three Fiber & Drei
 - **Animations**: GSAP
 - **Language**: TypeScript
-- **Styling**: CSS Modules
 
 ## 🛠️ Development
 
 1. Clone the repository:
-```git clone git@github.com:emiilyxie/emilyfmv3.git
+```
+git clone git@github.com:emiilyxie/emilyfmv3.git
 cd emilyfmv3
 ```
 
 2. Install dependencies:
-```npm install
+```
+npm install
 ```
 
 3. Start the development server:
-```npm run dev
+```
+npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
