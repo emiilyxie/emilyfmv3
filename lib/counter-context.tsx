@@ -86,15 +86,12 @@ export function CounterProvider({ children }: { children: React.ReactNode }) {
 
       const currentCount = currentData?.count || 0
       const newCount = currentCount + 1
+      setClickCount(newCount) // the illusion of an increment
 
       // Update with incremented count
       const { error: updateError } = await supabase
         .from('cat_clicks')
         .upsert({ id: process.env.NEXT_PUBLIC_SUPABASE_CATCLICK_ID, count: newCount })
-
-      if (!updateError) {
-        setClickCount(newCount)
-      }
 
       if (updateError) {
         console.error('Failed to update counter:', updateError)

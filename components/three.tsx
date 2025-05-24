@@ -18,7 +18,7 @@ export function Scene(props : any) {
       <Suspense fallback={null}>
         {React.cloneElement(props.children, { onCatClick: incrementCount })}
       </Suspense>
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </Canvas>
   );
 }
