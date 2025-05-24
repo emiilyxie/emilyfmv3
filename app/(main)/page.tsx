@@ -11,7 +11,6 @@ TODOs:
 */
 
 export default function Home() {
-
   return (
     <>
         <p className={styles.blurb}>i'm emily xie, and welcome to my website.</p>

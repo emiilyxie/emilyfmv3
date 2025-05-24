@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/navbar'
 import { Roboto_Mono } from "next/font/google"
+import { CounterProvider } from '@/lib/counter-context'
 
 const roboto = Roboto_Mono({
   weight: '400',
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.className}>
       <body>
-        <Navbar />
-        {children}
+        <CounterProvider>
+          <Navbar />
+          {children}
+        </CounterProvider>
       </body>
     </html>
   )
