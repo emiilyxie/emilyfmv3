@@ -61,8 +61,9 @@ export function GLTFModel(props : any) {
   })
 
   useLayoutEffect(() => {
-    if (gltf && 'scene' in gltf) {
-      gltf.scene.traverse((child : any) => {
+    const model = Array.isArray(gltf) ? gltf[0] : gltf
+    if (model && 'scene' in model) {
+      model.scene.traverse((child : any) => {
         if (child instanceof Mesh) {
           child.material = new MeshBasicMaterial({color: props.color || 0x000000})
         }
@@ -71,7 +72,6 @@ export function GLTFModel(props : any) {
   }, [])
 
   const handleClick = (event: any) => {
-    // Stop the event from propagating to OrbitControls
     event.stopPropagation()
     console.log('Cat clicked!')
     props.onCatClick?.()
@@ -90,7 +90,7 @@ export function GLTFModel(props : any) {
         document.body.style.cursor = 'auto'
       }}
     >
-      <primitive {...props} ref={mesh} object={gltf.scene} />
+      <primitive {...props} ref={mesh} object={Array.isArray(gltf) ? gltf[0].scene : gltf.scene} />
     </group>
   )
 }
@@ -121,8 +121,7 @@ export function Photo(props : any) {
   return (
     <mesh {...props} rotation={[1,0,0]} ref={mesh}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial map={colorMap} />
+      <meshBasicMaterial map={Array.isArray(colorMap) ? colorMap[0] : colorMap} />
     </mesh>
   )
-
 }
