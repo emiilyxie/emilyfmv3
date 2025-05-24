@@ -6,20 +6,22 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
 import { Mesh, MeshBasicMaterial } from "three";
+import * as THREE from 'three'
+import React from 'react'
+import { useCounter } from '@/lib/counter-context'
 
 export function Scene(props : any) {
+  const { incrementCount } = useCounter()
+
   return (
-    <Canvas>
+    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
       <Suspense fallback={null}>
-        {props.children}
-        {/* <GLTFModel path={props.path} color={"black"} position={[0,0,0]} scale={2}/> */}
-        {/* <Photo path={props.path} position={[0,0,0]}/> */}
-        {/* <Sphere position={[0,0,0]} scale={0.5}/> */}
+        {React.cloneElement(props.children, { onCatClick: incrementCount })}
       </Suspense>
       <OrbitControls />
     </Canvas>
-    );
-  }
+  );
+}
 
 function Box(props : any){
   return(
@@ -50,6 +52,7 @@ function Sphere(props : any) {
 export function GLTFModel(props : any) {
   const gltf = useLoader(GLTFLoader, props.path)
   const mesh = useRef<THREE.Mesh>(null)
+  const group = useRef<THREE.Group>(null)
 
   useFrame(() => {
     if (mesh.current) {
@@ -58,14 +61,38 @@ export function GLTFModel(props : any) {
   })
 
   useLayoutEffect(() => {
-    gltf.scene.traverse((child : any) => {
-      if (child instanceof Mesh) {
-        child.material = new MeshBasicMaterial({color: props.color || 0x000000})
-      }
-    })
+    if (gltf && 'scene' in gltf) {
+      gltf.scene.traverse((child : any) => {
+        if (child instanceof Mesh) {
+          child.material = new MeshBasicMaterial({color: props.color || 0x000000})
+        }
+      })
+    }
   }, [])
 
-  return <primitive {...props} ref={mesh} object={gltf.scene} />
+  const handleClick = (event: any) => {
+    // Stop the event from propagating to OrbitControls
+    event.stopPropagation()
+    console.log('Cat clicked!')
+    props.onCatClick?.()
+  }
+
+  return (
+    <group 
+      ref={group}
+      onClick={handleClick}
+      onPointerOver={(e) => {
+        e.stopPropagation()
+        document.body.style.cursor = 'pointer'
+      }}
+      onPointerOut={(e) => {
+        e.stopPropagation()
+        document.body.style.cursor = 'auto'
+      }}
+    >
+      <primitive {...props} ref={mesh} object={gltf.scene} />
+    </group>
+  )
 }
 
 export function OBJModel(props : any) {

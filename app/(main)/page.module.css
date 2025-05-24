@@ -1,14 +1,16 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: 100%
+  height: 100%;
+  position: relative;
 }
 
 .canvas {
   flex: 0.68 1 0;
   height: 100%;
   min-width: 0;
-  z-index: -1;
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -16,6 +18,8 @@
   overflow-y: scroll;
   padding: 3em 5em 3em 0em;
   min-width: 20em;
+  position: relative;
+  z-index: 2;
 }
 
 .blurb {

@@ -13,7 +13,7 @@ export function ProjectItem(props: { project: ProjectType }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const root = useRef(null)
   const descRef = useRef(null)
-  const tl = useRef<GSAPTimeline>()
+  const tl = useRef<GSAPTimeline>(null)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
